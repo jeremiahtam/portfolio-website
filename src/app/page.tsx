@@ -30,7 +30,6 @@ const Home: FunctionComponent<Props> = (props) => {
   const [projectsData, setProjectsData] = useState<[ProjectsDataProps] | []>([])
   useEffect(() => {
     getProjects()
-    console.log(projectsData)
   }, [])
   /** Get projects */
   const getProjects = async () => {
