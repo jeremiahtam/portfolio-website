@@ -17,6 +17,7 @@ interface ProjectsDataProps {
   projectTitle: string
   projectDetails: string
   projectTags: string
+  projectLink: string
   projectPicture: string
 }
 const Home: FunctionComponent<Props> = (props) => {
@@ -45,7 +46,7 @@ const Home: FunctionComponent<Props> = (props) => {
         throw new Error(JSON.stringify(json))
       }
       setProjectsData(json.data)
-      console.log(json.data)
+      // console.log(json.data)
     } catch (error: any) {
       const jsonError = JSON.parse(error.message)
       if (jsonError.message) {
@@ -90,6 +91,7 @@ const Home: FunctionComponent<Props> = (props) => {
                       projectTags={data.projectTags}
                       projectPicture={data.projectPicture}
                       projectDate={data.projectDate}
+                      projectLink={data.projectLink}
                       projectTitle={data.projectTitle}
                       projectDetails={data.projectDetails}
                     />
