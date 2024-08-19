@@ -3,8 +3,9 @@ import { RiCellphoneFill } from 'react-icons/ri'
 import NavIcons from '../molecule/NavIcons'
 import { FaCopyright, FaEnvelope } from 'react-icons/fa'
 import Link from 'next/link'
-
-function Footer() {
+interface FooterProps {
+}
+function Footer(props: FooterProps) {
   return (
     <div className="border-t-2 border-gray-100">
       <div className="container mx-auto md:flex md:justify-between px-2 py-4">

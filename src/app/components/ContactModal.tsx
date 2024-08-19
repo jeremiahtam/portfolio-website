@@ -30,7 +30,7 @@ const ContactModal = (props: ContactModalProps) => {
         mode: 'cors',
         body: JSON.stringify(values),
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
       })
       const json = await res.json()
@@ -61,11 +61,11 @@ const ContactModal = (props: ContactModalProps) => {
       aria-labelledby="hs-medium-modal-label"
     >
       <div className="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all md:max-w-2xl md:w-full m-3 md:mx-auto">
-        <div className="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+        <div className="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto">
           <div className="flex justify-end items-center py-3 px-4">
             <button
               type="button"
-              className="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-700 text-gray-100 hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-200 dark:hover:bg-neutral-100 dark:text-neutral-100 dark:focus:bg-neutral-100"
+              className="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-700 text-gray-100 hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none"
               aria-label="Close"
               data-hs-overlay="#hs-medium-modal"
             >
@@ -79,7 +79,7 @@ const ContactModal = (props: ContactModalProps) => {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}
-                strokeLinecap='round'
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <path d="M18 6 6 18"></path>
