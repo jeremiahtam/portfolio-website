@@ -1,7 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: 'build',
-  output: 'export',//enables static builds
+  distDir: 'build',//static build folder
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'portfolio-website-backend-nr8w.onrender.com',
+        port: '',
+        pathname: '/**'
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '7001',
+        pathname:'/**'
+      },
+    ]
+  },
+  // output: 'export',//enables static builds
   env: {
     BASE_API_URL: process.env.BASE_API_URL
   },

@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import Project1 from '../../../public/09b23c232f2f199be886583009dcf98c.png'
-import { useCallback, useEffect, useState } from 'react'
 
 interface ProjectProps {
   id?: string
@@ -13,33 +11,17 @@ interface ProjectProps {
 
 function Project(props: ProjectProps) {
   let projectTags = props.projectTags?.split(',').filter((i) => i)
-  const [imageUrl, setImageUrl] = useState('')
-
-  const fetchImage = async () => {
-    try {
-      const url = `${process.env.BASE_API_URL}/fetch-image/${props.projectPicture}`
-      const res = await fetch(url)
-      const val = await res.blob()
-      var imgUrl = URL.createObjectURL(val)
-      console.log(imgUrl)
-      setImageUrl(imgUrl)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  useEffect(() => {
-    fetchImage()
-  }, [])
 
   return (
     <div className="mb-2">
       <div className="h-44 md:h-44 overflow-hidden">
         <Image
+          unoptimized //removes image optimizaion setup at next.config.mjs
+          src={`${process.env.BASE_API_URL}/image/${props.projectPicture}`}
           alt=""
           width={100}
           height={100}
           className="w-full aspect-auto transition-all duration-300 rounded-lg cursor-pointer hover:grayscale-0"
-          src={imageUrl}
         />
       </div>
       <div className="mt-2">{props.projectDate}</div>

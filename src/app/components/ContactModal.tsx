@@ -29,7 +29,9 @@ const ContactModal = (props: ContactModalProps) => {
         method: 'POST',
         mode: 'cors',
         body: JSON.stringify(values),
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json'
+        },
       })
       const json = await res.json()
 
@@ -76,9 +78,9 @@ const ContactModal = (props: ContactModalProps) => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth={2}
+                strokeLinecap='round'
+                strokeLinejoin="round"
               >
                 <path d="M18 6 6 18"></path>
                 <path d="m6 6 12 12"></path>
