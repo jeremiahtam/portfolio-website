@@ -10,10 +10,22 @@ const nextConfig = {
         pathname: '/**'
       },
       {
+        protocol: 'https',
+        hostname: 'esitejeremiah.oncliqsupport.com',
+        port: '',
+        pathname: '/**'
+      },
+      {
         protocol: 'http',
         hostname: 'localhost',
         port: '7001',
-        pathname:'/**'
+        pathname: '/**'
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**'
       },
     ]
   },
@@ -23,7 +35,7 @@ const nextConfig = {
   },
   webpack: (config, options) => {
     config.module.rules.push({
-      test: /\.(pdf|png|jpg|gif)$/i,
+      test: /\.(pdf|png|jpg|jpeg|gif)$/i,
       type: "asset/resource",
     });
     return config;

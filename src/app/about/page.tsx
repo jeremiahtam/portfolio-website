@@ -5,7 +5,6 @@ import Footer from '../components/atom/Footer'
 import PreFooter from '../components/atom/PreFooter'
 import Category from '../components/Category'
 import Image from 'next/image'
-import ProfilePic from '../../../public/profilepic.jpeg'
 import FloatingNavigation from '../components/FloatingNavigation'
 import ContactModal from '../components/ContactModal'
 import { useModalHook } from '../hooks/toggleModal'
@@ -35,16 +34,21 @@ const About: FunctionComponent<Props> = (props) => {
             Express.js, Node.js, Mongoose, MySQL, MongoDB, Git and GitHub.
           </div>
           <div className="text-red-500 text-sm mb-16">
-            <Link
-              href={require('../../../public/Jeremiah CV - Global - Tech.pdf')}
-            >
+            <Link href={'Jeremiah CV - Global - Tech.pdf'}>
               Download resume
             </Link>
           </div>
         </div>
         <div className="container mx-auto px-6 my-16 md:px-40 lg:px-80">
           <div className="h-auto md:h-auto overflow-hidden">
-            <Image alt="" className="max-w-full aspect-auto" src={ProfilePic} />
+            <Image
+              unoptimized
+              alt=""
+              width={0}
+              height={100}
+              className="max-w-full aspect-auto w-full"
+              src={'profilepic.jpeg'}
+            />
           </div>
         </div>
         <div className="py-10 items-center">
