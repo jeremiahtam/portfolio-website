@@ -2,10 +2,9 @@
 import { FaArrowRight } from 'react-icons/fa'
 
 interface PrefooterProps {
-  toggleModal: () => void
+  openModal: () => void
 }
 function PreFooter(props: PrefooterProps) {
-
   return (
     <>
       <div className="mb-28">
@@ -15,11 +14,11 @@ function PreFooter(props: PrefooterProps) {
             <div
               className="mr-2 md:mr-6 cursor-pointer"
               id="open-btn"
-              onClick={props.toggleModal}
+              onClick={props.openModal}
             >
-              LET&apos;S WORK TOGETHER{' '}
+              LET&apos;S WORK TOGETHER
             </div>
-            <FaArrowRight id="open-btn" onClick={props.toggleModal} />
+            <FaArrowRight id="open-btn" onClick={props.openModal} />
           </div>
         </div>
       </div>

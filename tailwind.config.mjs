@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const flowbite = require("flowbite-react/tailwind");
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -6,7 +7,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    './node_modules/preline/preline.js',
+    flowbite.content(),
   ],
   theme: {
     extend: {
@@ -22,7 +23,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('preline/plugin'),
+    flowbite.plugin()
   ],
 }
 

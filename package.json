@@ -15,8 +15,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@preline/overlay": "^2.4.1",
-    "@preline/remove-element": "^2.4.1",
     "dotenv": "^16.4.5",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest-dom": "^5.4.0",
@@ -25,7 +23,6 @@
     "formik": "^2.4.6",
     "framer-motion": "^11.3.28",
     "next": "^14.2.5",
-    "preline": "^2.4.1",
     "prettier": "^3.3.3",
     "react": "^18",
     "react-dom": "^18",

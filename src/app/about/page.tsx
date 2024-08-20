@@ -1,5 +1,5 @@
 'use client'
-import { FunctionComponent, useRef } from 'react'
+import { FunctionComponent, useRef, useState } from 'react'
 import Header from '../components/atom/Header'
 import Footer from '../components/atom/Footer'
 import PreFooter from '../components/atom/PreFooter'
@@ -7,14 +7,16 @@ import Category from '../components/Category'
 import Image from 'next/image'
 import FloatingNavigation from '../components/FloatingNavigation'
 import ContactModal from '../components/ContactModal'
-import { useModalHook } from '../hooks/toggleModal'
 import Link from 'next/link'
 
 interface Props {}
 
 const About: FunctionComponent<Props> = (props) => {
-  const modalRef = useRef() as React.MutableRefObject<HTMLDivElement>
-  const { toggleModal } = useModalHook({ modalRef })
+  /** Modal control */
+  const [openModal, setOpenModal] = useState(false)
+
+  const [showToast, setShowToast] = useState<boolean>(false)
+  const [errorMessage, setErrorMessage] = useState<string>('')
 
   return (
     <div>
@@ -76,10 +78,13 @@ const About: FunctionComponent<Props> = (props) => {
           </div>
         </div>
       </div>
-      <PreFooter toggleModal={toggleModal} />
+      <PreFooter openModal={() => setOpenModal(true)} />
       <FloatingNavigation />
       <Footer />
-      <ContactModal modalRef={modalRef} />
+      <ContactModal
+        openModal={openModal}
+        setOpenModal={() => setOpenModal(false)}
+      />
     </div>
   )
 }

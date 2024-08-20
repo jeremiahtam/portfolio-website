@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter, Koulen } from 'next/font/google'
 import './globals.css'
-import PrelineScript from './components/PrelineScript'
 import 'dotenv/config'
+import { ThemeModeScript } from 'flowbite-react'
 
-const inter = Inter({ subsets: ['latin'],variable: "--font-inter" })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const koulen = Koulen({
   subsets: ['khmer'],
-  weight:['400'],
-  variable: "--font-koulen"
+  weight: ['400'],
+  variable: '--font-koulen',
 })
 
 export const metadata: Metadata = {
@@ -25,9 +25,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${koulen.variable} ${inter}`}>
+    <html
+      lang="en"
+      className={`${koulen.variable} ${inter}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <ThemeModeScript />
+      </head>
       <body>{children}</body>
-      <PrelineScript />
+      {/* <PrelineScript /> */}
     </html>
   )
 }

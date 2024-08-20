@@ -4,11 +4,10 @@ import Footer from './components/atom/Footer'
 import { FaArrowRight } from 'react-icons/fa'
 import PreFooter from './components/atom/PreFooter'
 import Project from './components/Project'
-import { FunctionComponent, useEffect, useRef, useState } from 'react'
+import { FunctionComponent, useEffect, useState } from 'react'
 import FloatingNavigation from './components/FloatingNavigation'
-import { useModalHook } from './hooks/toggleModal'
 import ContactModal from './components/ContactModal'
-import Toast from './components/Toast'
+import Toast from './components/CustomToast'
 
 interface Props {}
 interface ProjectsDataProps {
@@ -21,8 +20,8 @@ interface ProjectsDataProps {
   projectPicture: string
 }
 const Home: FunctionComponent<Props> = (props) => {
-  const modalRef = useRef() as React.MutableRefObject<HTMLDivElement>
-  const { toggleModal } = useModalHook({ modalRef })
+  /** Modal control */
+  const [openModal, setOpenModal] = useState(false)
 
   /** Toast */
   const [showToast, setShowToast] = useState<boolean>(false)
@@ -74,7 +73,7 @@ const Home: FunctionComponent<Props> = (props) => {
           </div>
           <button
             className="flex text-xs items-center bg-black text-white p-4"
-            onClick={toggleModal}
+            onClick={() => setOpenModal(true)}
           >
             <div className="mr-2">Let&apos;s work together </div>
             <FaArrowRight />
@@ -104,15 +103,19 @@ const Home: FunctionComponent<Props> = (props) => {
       </div>
       {showToast && (
         <Toast
+          showToast={showToast}
           setShowToast={setShowToast}
           message={errorMessage}
           autoDisappear={true}
         />
       )}
-      <PreFooter toggleModal={toggleModal} />
+      <PreFooter openModal={() => setOpenModal(true)} />
       <FloatingNavigation />
       <Footer />
-      <ContactModal modalRef={modalRef} />
+      <ContactModal
+        openModal={openModal}
+        setOpenModal={() => setOpenModal(false)}
+      />
     </div>
   )
 }
