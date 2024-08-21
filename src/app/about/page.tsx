@@ -15,9 +15,6 @@ const About: FunctionComponent<Props> = (props) => {
   /** Modal control */
   const [openModal, setOpenModal] = useState(false)
 
-  const [showToast, setShowToast] = useState<boolean>(false)
-  const [errorMessage, setErrorMessage] = useState<string>('')
-
   return (
     <div>
       <Header />
