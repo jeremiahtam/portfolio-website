@@ -4,10 +4,12 @@ import Footer from './components/atom/Footer'
 import { FaArrowRight } from 'react-icons/fa'
 import PreFooter from './components/atom/PreFooter'
 import Project from './components/Project'
-import { FunctionComponent, useEffect, useState } from 'react'
+import { FunctionComponent, useEffect, useRef, useState } from 'react'
 import FloatingNavigation from './components/FloatingNavigation'
 import ContactModal from './components/ContactModal'
 import Toast from './components/CustomToast'
+import ProjectPlaceholder from './components/ProjectPlaceholder'
+import Reveal from './animations/Reveal'
 
 interface Props {}
 interface ProjectsDataProps {
@@ -57,47 +59,58 @@ const Home: FunctionComponent<Props> = (props) => {
       }
     }
   }
+
   return (
     <div>
       <Header />
       <div className="py-8 md:py-16">
         <div className="container mx-auto px-6 md:px-16 lg:px-28">
-          <div className="my-2 md:my-4">Meet Jeremiah Esite 👋</div>
-          <div className="font-extrabold font-koulen text-5xl md:text-7xl">
-            Crafting digital experiences with{' '}
-            <span className="text-orange-700">code</span> and{' '}
-            <span className="text-orange-700">creativity</span>
-          </div>
-          <div className="my-8">
-            I am Esite Jeremiah Tam a fullstack enthusiast.
-          </div>
-          <button
-            className="flex text-xs items-center bg-black text-white p-4"
-            onClick={() => setOpenModal(true)}
-          >
-            <div className="mr-2">Let&apos;s work together </div>
-            <FaArrowRight />
-          </button>
+          <Reveal>
+            <div className={`my-2 md:my-4`}>Meet Jeremiah Esite 👋</div>
+          </Reveal>
+          <Reveal>
+            <div className="font-extrabold font-koulen text-5xl md:text-7xl">
+              Crafting digital experiences with{' '}
+              <span className="text-orange-700">code</span> and{' '}
+              <span className="text-orange-700">creativity</span>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="my-8">
+              I am Esite Jeremiah Tam a fullstack enthusiast.
+            </div>
+          </Reveal>
+          <Reveal>
+            <button
+              className="flex text-xs items-center bg-black text-white p-4"
+              onClick={() => setOpenModal(true)}
+            >
+              <div className="mr-2">Let&apos;s work together </div>
+              <FaArrowRight />
+            </button>
+          </Reveal>
         </div>
         <div className="py-10 items-center">
           <div className="container mx-auto px-6 md:px-16 lg:px-28">
-            {projectsData.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {projectsData.map((data, index: number) => {
-                  return (
-                    <Project
-                      key={index}
-                      projectTags={data.projectTags}
-                      projectPicture={data.projectPicture}
-                      projectDate={data.projectDate}
-                      projectLink={data.projectLink}
-                      projectTitle={data.projectTitle}
-                      projectDetails={data.projectDetails}
-                    />
-                  )
-                })}
-              </div>
-            )}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {projectsData.length > 0
+                ? projectsData.map((data, index: number) => {
+                    return (
+                      <Project
+                        key={index}
+                        projectTags={data.projectTags}
+                        projectPicture={data.projectPicture}
+                        projectDate={data.projectDate}
+                        projectLink={data.projectLink}
+                        projectTitle={data.projectTitle}
+                        projectDetails={data.projectDetails}
+                      />
+                    )
+                  })
+                : [...Array(6)].map((item, index) => {
+                    return <ProjectPlaceholder key={index} />
+                  })}
+            </div>
           </div>
         </div>
       </div>

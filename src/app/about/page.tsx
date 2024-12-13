@@ -8,6 +8,7 @@ import Image from 'next/image'
 import FloatingNavigation from '../components/FloatingNavigation'
 import ContactModal from '../components/ContactModal'
 import Link from 'next/link'
+import Reveal from '../animations/Reveal'
 
 interface Props {}
 
@@ -23,31 +24,39 @@ const About: FunctionComponent<Props> = (props) => {
           <div className="text-2xl md:text-4xl font-inter">
             I am Esite Jeremiah Tam a full stack developer.
           </div>
-          <div className="my-4 text-sm md:text-lg">
-            I&apos;m Esite Jeremiah Tam, a full stack developer. I am a
-            passionate and goal-driven freelance web and mobile app developer.
-            My experience range from programming languages and frameworks in
-            frontend and backend development. I have a good understanding of
-            HTML, CSS, Bootstrap, TailwindCSS, PrelineCSS, JavaScript, jQuery,
-            JSON, Next.js React.js, React Native, Redux, PHP, Laravel,
-            Express.js, Node.js, Mongoose, MySQL, MongoDB, Git and GitHub.
-          </div>
-          <div className="text-red-500 text-sm mb-16">
-            <Link href={'Jeremiah CV - Global - Tech.pdf'}>
-              Download resume
-            </Link>
-          </div>
+          <Reveal>
+            <div className="my-4 text-sm md:text-lg">
+              I&apos;m Esite Jeremiah Tam, a full stack developer. I am a
+              passionate and goal-driven freelance web and mobile app developer.
+              My experience range from programming languages and frameworks in
+              frontend and backend development. I have a good understanding of
+              HTML, CSS, Bootstrap, TailwindCSS, PrelineCSS, JavaScript, jQuery,
+              JSON, Next.js React.js, React Native, Redux, PHP, Laravel,
+              Express.js, Node.js, Mongoose, MySQL, MongoDB, Git and GitHub.
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="text-red-500 text-sm mb-16">
+              <Link href={'Jeremiah CV - Global - Tech.pdf'}>
+                Download resume
+              </Link>
+            </div>
+          </Reveal>
         </div>
         <div className="container mx-auto px-6 my-16 md:px-40 lg:px-80">
           <div className="h-auto md:h-auto overflow-hidden">
-            <Image
-              unoptimized
-              alt=""
-              width={0}
-              height={100}
-              className="max-w-full aspect-auto w-full"
-              src={'profilepic.jpeg'}
-            />
+            <Reveal>
+              <Image
+                unoptimized
+                alt=""
+                width={0}
+                height={100}
+                className="max-w-full aspect-auto w-full"
+                src={'profilepic.jpeg'}
+                placeholder="blur"
+                blurDataURL="profilepicPlaceholder.png"
+              />
+            </Reveal>
           </div>
         </div>
         <div className="py-10 items-center">

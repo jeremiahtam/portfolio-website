@@ -5,6 +5,7 @@ import { Form, Formik, FormikHelpers, Field } from 'formik'
 import * as Yup from 'yup'
 import { CustomFlowbiteTheme, Modal } from 'flowbite-react'
 import CustomToast from './CustomToast'
+import Reveal from '../animations/Reveal'
 
 const modalTheme: CustomFlowbiteTheme['modal'] = {
   content: {
@@ -83,18 +84,25 @@ const ContactModal = (props: ContactModalProps) => {
         <div className="overflow-y-auto">
           <div className="border-b-2 border-gray-100">
             <div className="container mx-auto py-6 px-6 lg:px-8">
-              <div className="mb-7 text-red-500">Get in touch</div>
-              <div className="mb-7 font-extrabold font-koulen text-5xl">
-                LET&apos;S WORK TOGETHER
-              </div>
-              <div className="text-sm">
-                Have a question, idea, or project you&apos;d like to collaborate
-                on? Or are you looking for a skilled frontend developer to join
-                your team? I&apos;d love to explore how I can assist and
-                contribute to your projects. Please feel free to contact me at{' '}
-                <span className="text-red-500">contact@Je.dev</span> to discuss
-                potential opportunities
-              </div>
+              <Reveal>
+                <div className="mb-7 text-red-500">Get in touch</div>
+              </Reveal>
+              <Reveal>
+                <div className="mb-7 font-extrabold font-koulen text-5xl">
+                  LET&apos;S WORK TOGETHER
+                </div>
+              </Reveal>
+              <Reveal>
+                <div className="text-sm">
+                  Have a question, idea, or project you&apos;d like to
+                  collaborate on? Or are you looking for a skilled frontend
+                  developer to join your team? I&apos;d love to explore how I
+                  can assist and contribute to your projects. Please feel free
+                  to contact me at{' '}
+                  <span className="text-red-500">contact@Je.dev</span> to
+                  discuss potential opportunities
+                </div>
+              </Reveal>
             </div>
           </div>
           <div className="">

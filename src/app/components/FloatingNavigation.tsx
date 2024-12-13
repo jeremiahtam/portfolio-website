@@ -12,7 +12,7 @@ const FloatingNavigation = () => {
   }
 
   return (
-    <div className="flex flex-row w-full align-middle justify-center relative">
+    <div className="flex flex-row w-full align-middle justify-center relative opacity-80 hover:opacity-100 focus:opacity-100">
       <div
         className="flex flex-row gap-2 p-1 align-middle justify-center
          bg-white w-56 border-gray-100 border-[1px] rounded-md bottom-36 md:bottom-20 fixed"

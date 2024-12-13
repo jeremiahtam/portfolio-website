@@ -15,7 +15,7 @@ function Project(props: ProjectProps) {
   let projectTags = props.projectTags?.split(',').filter((i) => i)
 
   return (
-    <div className="mb-2">
+    <div className="mb-5">
       <div className="h-44 md:h-44 overflow-hidden">
         <Link href={`${props.projectLink}`}>
           <Image
